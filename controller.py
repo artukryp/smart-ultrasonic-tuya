@@ -12,17 +12,17 @@ class UltrasonicSensor:
         GPIO.setup(self.echo_pin, GPIO.IN)
 
     def distance(self):
+        GPIO.output(self.trigger_pin, False)
+        time.sleep(0.000002)
+
         GPIO.output(self.trigger_pin, True)
         time.sleep(0.00001)
-        GPIO.output(self.echo_pin, False)
+        GPIO.output(self.trigger_pin, False)
 
-        #Tiempos de retorno de echo
-        start_time = time.time()
-        stop_time = time.time()
-
-        while GPIO.input(GPIO_ECHO) == 0:
+        while GPIO.input(self.echo_pin) == 0:
             start_time = time.time()
-        while GPIO.input(GPIO_ECHO) == 1:
+
+        while GPIO.input(self.echo_pin) == 1:
             stop_time = time.time()
 
         # Calcular la distancia en centímetros
