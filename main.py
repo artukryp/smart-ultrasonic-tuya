@@ -6,7 +6,7 @@ ALTURA_TOTAL = 100
 
 # Altura del agua cuando la cisterna está llena en cm
 
-cisterna = UltrasoniSensor(trigger_pin=7, echo_pin=11)
+cisterna = UltrasonicSensor(trigger_pin=7, echo_pin=11)
 
 try:
     while True:
