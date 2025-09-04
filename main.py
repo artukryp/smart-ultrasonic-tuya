@@ -10,7 +10,7 @@ cisterna = UltrasonicSensor(trigger_pin=7, echo_pin=11)
 
 try:
     while True:
-        dist = cisterna_sensor.distance()
+        dist = cisterna.distance()
         nivel_agua = ((ALTURA_TOTAL - dist) / (ALTURA_TOTAL - ALTURA_LLENA)) * 100
         nivel_agua = max(0, min(100, nivel_agua)) # Limitar entre 0% y 100%
         printf(f"Nivel de agua: {nivel_agua:.2f}%")
