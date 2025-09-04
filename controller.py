@@ -30,6 +30,6 @@ class UltrasonicSensor:
         distance_cm = (time_elapsed * 34300) / 2
         return distance_cm
 
-@staticmethod
-def cleanup():
-    GPIO.cleanup()
+    @staticmethod
+    def cleanup():
+        GPIO.cleanup()
